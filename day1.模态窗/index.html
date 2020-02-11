@@ -19,27 +19,21 @@
 	<body>
 		<script src="modal/index.js" type="text/javascript" charset="utf-8"></script>
 		<div id="aaa">
-			<button type="button" id='upload'>打开modal</button>
+			<button type="button" id='bbb'>打开modal</button>
 		</div>
 		<script type="text/javascript">
-			const MAX_SIZE = 1024 * 1024
-			document.getElementById('upload').addEventListener('click', function(event) {
-				console.log(event)
+			document.getElementById('bbb').addEventListener('click', function(event) {
+				var content = document.createElement('div')
+				content.innerHTML = '我是一个content'
 				let modal = new Modal({
 					title: 'Modal',
-					content: '<div>你好，我是一个modal</div>',
+					content: content,
 					event
 				})
 				setTimeout(function(){
 					modal.open()
 				},0)
 			})
-
-			function compress(file) {
-				console.log(file)
-				// 获取图片的宽高
-				// 创建一个模态窗,里面包含一个canvas做图片压缩
-			}
 		</script>
 	</body>
 </html>

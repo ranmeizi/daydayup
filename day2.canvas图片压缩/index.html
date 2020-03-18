@@ -4,45 +4,28 @@
 		<meta charset="utf-8">
 		<title>测试</title>
 		<link rel="stylesheet" type="text/css" href="modal/index.css" />
-		<style type="text/css">
-			* {
-				margin: 0;
-			}
-
-			#aaa {
-				height: 600px;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-			}
-		</style>
+		<link rel="stylesheet" type="text/css" href="style.css"/>
 	</head>
 	<body>
-		<script src="modal/index.js" type="text/javascript" charset="utf-8"></script>
+		<script src="index.js" type="text/javascript" charset="utf-8"></script>
 		<div id="aaa">
-			<button type="button" id='upload'>打开modal</button>
+			<div>
+				<!-- 预览框 -->
+				<div class="yulan">
+					<img src="default.jpg">
+				</div>
+				<input type="file" name="" id="iptFile" value="" accept="image/*" />
+				<!-- 参数栏 -->
+				<div>
+					<label>变换宽度<input type="text" name="" id="width" value="400" />px</label>
+					<label>变换高度<input type="text" name="" id="height" value="400" />px</label>
+				</div>
+				<!-- 操作按钮 -->
+				<div>
+					<button id="scale" type="button">变换</button>
+					<button id='download' type="button">下载</button>
+				</div>
+			</div>
 		</div>
-		<script type="text/javascript">
-			const MAX_SIZE = 1024 * 1024
-			document.getElementById('upload').addEventListener('click', function(event) {
-				console.log(event)
-				var content = document.createElement('div')
-				content.innerHTML = '我是一个content'
-				let modal = new Modal({
-					title: 'Modal',
-					content: content,
-					event
-				})
-				setTimeout(function() {
-					modal.open()
-				}, 0)
-			})
-
-			function compress(file) {
-				console.log(file)
-				// 获取图片的宽高
-				// 创建一个模态窗,里面包含一个canvas做图片压缩
-			}
-		</script>
 	</body>
 </html>

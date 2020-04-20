@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>day3</title>
+  <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
+  <script
+    src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,requestAnimationFrame,Element.prototype.classList,URL">
+  </script>
+  <style>
+    * {
+      margin: 0;
+    }
+
+    .map {
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .echarts {
+      /* position: absolute;
+      z-index: 1; */
+      width: 100vw;
+      height: 100vh;
+      /* top: 0 */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="map" class="map"></div>
+  <div id="echarts" class="echarts"></div>
+  <script src="index.js"></script>
+  <script src="/echarts.js"></script>
+</body>
+
+</html>

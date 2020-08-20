@@ -1,0 +1,25 @@
+{
+	"name": "react-tab",
+	"version": "1.0.0",
+	"main": "index.js",
+	"author": "boboan <360969885@qq.com>",
+	"license": "MIT",
+	"dependencies": {
+		"antd": "^4.5.4",
+		"react": "^16.13.1",
+		"react-activation": "^0.5.5",
+		"react-dom": "^16.13.1",
+		"react-redux": "^7.2.1",
+		"react-router-config": "^5.1.1",
+		"react-router-dom": "^5.2.0",
+		"redux": "^4.0.5"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.11.1",
+		"less": "^3.12.2",
+		"parcel-bundler": "^1.12.4"
+	},
+	"scripts": {
+		"start": "parcel index.html"
+	}
+}

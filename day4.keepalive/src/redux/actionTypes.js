@@ -1,2 +1,1 @@
-export const ADD_TAB = 'ADD_TAB'
-export const REMOVE_TAB = 'REMOVE_TAB'
+export const SET_TABS = 'SET_TABS'

@@ -22,17 +22,17 @@ let menu = Array(5).fill(1).map(() => {
 
 export default function App(props) {
   const [collapsed, setCollapsed] = useState(false)
-  function onSelect({ key }) {
+  function onSelect({ key, item }) {
     pushTab({
       url: key,
-      title: '列表页'
-    }, props.history)
+      title: item.props.navTitle
+    })
   }
   return <Layout>
     <Sider trigger={null} collapsible collapsed={collapsed}>
       <div className="logo" />
       <Menu theme="dark" mode="inline" selectedKeys={[props.location.pathname]} onSelect={onSelect}>
-        {menu.map(item => <Menu.Item key={item.url} icon={<UserOutlined />}>
+        {menu.map(item => <Menu.Item key={item.url} icon={<UserOutlined />} navTitle={item.title}>
           {item.title}
         </Menu.Item>)}
       </Menu>

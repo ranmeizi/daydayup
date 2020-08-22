@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-export default function () {
-  return <div>1</div>
+export default function (props) {
+  const [count, setCount] = useState(1)
+  return <div>{count}<button onClick={() => setCount(count + 1)}>+1</button></div>
 }

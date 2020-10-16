@@ -43,7 +43,20 @@ export default function Draw() {
         camera.position.z = 30
         camera.lookAt(scene.position)
 
-        renderer.render(scene, camera)
+        // renderer.render(scene, camera)
+        function animate() {
+
+            const cubes = scene.children.filter(item => /cube-/.test(item.name))
+            cubes.forEach(cube => {
+                // 方块旋转
+                cube.rotation.x += 0.02
+                cube.rotation.y += 0.02
+                cube.rotation.z += 0.02
+            })
+            requestAnimationFrame(animate);
+            renderer.render(scene, camera);
+        }
+        animate();
     }, [])
 
     function addCube() {
@@ -59,7 +72,7 @@ export default function Draw() {
         cube.position.z = -10 + Math.round((Math.random() * 20))
 
         scene.add(cube)
-        rendererRef.current.render(scene, cameraRef.current)
+        // rendererRef.current.render(scene, cameraRef.current)
     }
     function removeCube() {
         let children = sceneRef.current.children
@@ -67,7 +80,7 @@ export default function Draw() {
         if (lastChild instanceof THREE.Mesh) {
             sceneRef.current.remove(lastChild)
         }
-        rendererRef.current.render(sceneRef.current, cameraRef.current)
+        // rendererRef.current.render(sceneRef.current, cameraRef.current)
     }
     return <div ref={ref} style={{ height: '100%' }}>
         <div style={{ position: 'absolute' }}>

@@ -12,11 +12,10 @@ export function useCreateScene(ref) {
         var camera = new THREE.PerspectiveCamera(45, container.clientWidth / container.clientHeight, 0.1, 1000);
 
         camera.position.z = 50;
-
+        
         var renderer = new THREE.WebGLRenderer();
         renderer.setSize(container.clientWidth, container.clientHeight);
         container.appendChild(renderer.domElement);
-
         sceneRef.current = scene
         cameraRef.current = camera
         rendererRef.current = renderer

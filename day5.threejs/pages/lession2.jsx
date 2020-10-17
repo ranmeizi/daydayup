@@ -10,6 +10,10 @@ export default function Draw() {
         const renderer = rendererRef.current
         const camera = cameraRef.current
         const scene = sceneRef.current
+
+        scene.fog = new THREE.Fog(0xffffff, 0.015, 100)
+        // scene.overrideMaterial = new THREE.MeshLambertMaterial({ color: 0xff0000 })
+
         // 添加聚光灯光源
         const spotLight = new THREE.SpotLight(0xffffff)
         spotLight.position.set(-40, 60, -10)
@@ -25,14 +29,14 @@ export default function Draw() {
         renderer.setClearColor(0xEEEEEE, 1.0)
         renderer.shadowMapEnabled = true
 
-        const planeGeometry = new THREE.PlaneGeometry(60, 20, 1, 1)
+        const planeGeometry = new THREE.PlaneGeometry(60, 40, 1, 1)
         const planeMaterial = new THREE.MeshLambertMaterial({ color: 0xcccccc })
         const plane = new THREE.Mesh(planeGeometry, planeMaterial)
 
         plane.rotation.x = -0.5 * Math.PI
-        plane.position.x = 15
-        plane.position.y = 0
-        plane.position.z = 0
+        // plane.position.x = 15
+        // plane.position.y = 0
+        // plane.position.z = 0
 
         plane.receiveShadow = true
 
@@ -46,13 +50,21 @@ export default function Draw() {
         // renderer.render(scene, camera)
         function animate() {
 
-            const cubes = scene.children.filter(item => /cube-/.test(item.name))
-            cubes.forEach(cube => {
-                // 方块旋转
-                cube.rotation.x += 0.02
-                cube.rotation.y += 0.02
-                cube.rotation.z += 0.02
+            // const cubes = scene.children.filter(item => /cube-/.test(item.name))
+            // cubes.forEach(cube => {
+            //     // 方块旋转
+            //     cube.rotation.x += 0.02
+            //     cube.rotation.y += 0.02
+            //     cube.rotation.z += 0.02
+            // })
+            scene.traverse(e => {
+                if (e instanceof THREE.Mesh && e !== plane) {
+                    e.rotation.x += 0.02
+                    e.rotation.y += 0.02
+                    e.rotation.z += 0.02
+                }
             })
+
             requestAnimationFrame(animate);
             renderer.render(scene, camera);
         }
@@ -67,9 +79,9 @@ export default function Draw() {
         const cube = new THREE.Mesh(cubeGeometry, cubeMaterial)
         cube.castShadow = true
         cube.name = `cube-${scene.children.length}`
-        cube.position.x = Math.round((Math.random() * 60))
+        cube.position.x = -30 + Math.round((Math.random() * 60))
         cube.position.y = Math.round((Math.random() * 5))
-        cube.position.z = -10 + Math.round((Math.random() * 20))
+        cube.position.z = -20 + Math.round((Math.random() * 40))
 
         scene.add(cube)
         // rendererRef.current.render(scene, cameraRef.current)

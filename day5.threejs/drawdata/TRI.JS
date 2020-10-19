@@ -13,7 +13,7 @@ export default function get(zoom = 1) {
 
     var material = new THREE.MeshPhongMaterial({
         color: 0xffcc00,
-        opacity: 0.3,
+        opacity: 0.6,
         transparent: true
     });
 

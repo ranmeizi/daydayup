@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react'
 import * as hooks from '../components/hooks'
 import * as THREE from 'three'
-import {SceneUtils} from 'three//examples/jsm/utils/SceneUtils.js'
+import {SceneUtils} from 'three/examples/jsm/utils/SceneUtils.js'
 
 
 export default function Draw() {

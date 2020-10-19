@@ -15,7 +15,7 @@ function App() {
 
 function Learn() {
     const mr10 = { marginRight: '10px', height: '10px' }
-    const [active, setActive] = useState('')
+    const [active, setActive] = useState('A')
     const rcomp = () => {
         switch (active) {
             case '1': return <Lession1 />

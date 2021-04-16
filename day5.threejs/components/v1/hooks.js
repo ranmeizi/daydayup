@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react'
 export function useRenderer(container, options) {
     const renderer = useRef(null)
     const container = ref.current
-    renderer.current = new THREE.WebGLRenderer();
+    renderer.current = new THREE.WebGLRenderer({alpha:true});
     renderer.current.setSize(container.clientWidth, container.clientHeight);
     container.appendChild(renderer.current.domElement);
     return renderer
